@@ -20,7 +20,8 @@ public class DiaryController {
         this.diaryService = diaryService;
     }
 
-    @ApiOperation(value = "일기 텍스트와 날씨를 이용해서 DB에 일기 저장", notes = "이것은 노트")
+    @ApiOperation(value = "일기 텍스트와 날씨를 이용해서 DB에 일기 저장",
+            notes = "일기를 저장할 날짜와 내용을 입력하고 생성하면 해당 날짜의 날씨도 자동으로 저장됨")
     @PostMapping("/create/diary")   // 저장할 때 많이 사용
     void createDiary(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

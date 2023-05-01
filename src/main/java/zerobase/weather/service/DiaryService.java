@@ -107,11 +107,13 @@ public class DiaryService {
         return diaryRepository.findAllByDate(date);
     }
 
+    @Transactional(readOnly = true)
     public List<Diary> readDiaries(LocalDate startDate, LocalDate endDate) {
         return diaryRepository.findAllByDateBetween(startDate, endDate);
     }
 
     /* =================== Update =================== */
+    @Transactional
     public void updateDiary(LocalDate date, String text) {
         Diary nowDiary = diaryRepository.getFirstByDate(date);
         nowDiary.setText(text);

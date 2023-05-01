@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)   // INTERNAL_SERVER_ERROR 반환
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(NullPointerException.class)
     public Exception handleAllException(){
-        System.out.println("error from GlobalExceptionHandler");
+        System.out.println("해당 일기가 없습니다.");
         return new Exception();
     }
 }
